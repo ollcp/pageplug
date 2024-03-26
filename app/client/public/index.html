@@ -19,7 +19,6 @@
   <script src="/echarts-v5.4.0/echarts.min.js" defer="defer"></script>
   <script src="/echarts-v5.4.0/echarts-gl.min.js" defer="defer"></script>
   <script src="/echarts-v5.4.0/bmap.min.js" defer="defer"></script>
-  <script src="/logger.js"></script>
   <%=
     (function () {
       // This code emits additional `link rel="preload"` tags for edit.html and view.html.
@@ -129,19 +128,6 @@
       script1.type = "text/javascript";
       head && head.appendChild(script1);
     };
-    // This function is triggered on load of google apis javascript library
-    // Even though the script is loaded asynchronously, in case of firefox run on windows
-    // The gapi script is getting loaded even before the last script of index.html
-    // Hence defining this function before loading gapi
-    // For more info: https://github.com/appsmithorg/appsmith/issues/21033
-    gapiLoaded = () => {
-      window.googleAPIsLoaded = true;
-    };
-
-  </script>
-  <!-- Adding this Library to access google file picker API in case of limiting google sheet access -->
-  <script async defer id="googleapis" src="https://apis.google.com/js/api.js" onload="gapiLoaded()">
-  </script>
 </head>
 
 <body class="appsmith-light-theme">
